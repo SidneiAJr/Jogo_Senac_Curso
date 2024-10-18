@@ -7,4 +7,7 @@
 1- Atributos do personagem 1, Armadura, vida, baixa mobilidade.
 2- Atributos do personagem 2, Armadura, vida, baixa mobilidade, magia e cura.
 3- Atributos do personagem 3, Roubo de vida, ult berserk, cura, chance critica elevada, e ganho de vida base aumentado.
-4- Atributos do personagem 4, vida base aumentada, 
+4- Atributos do personagem 4, vida base aumentada, escudo, dano recebido reduzido, pele de ferro, dano reduzido, velocidade de ataque reduzida, cura aumentada e dano aumentado com % de vida perdida. 
+
+3 - vida base 100
+4 - vida base 100
