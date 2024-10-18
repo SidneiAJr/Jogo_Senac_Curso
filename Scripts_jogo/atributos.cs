@@ -56,13 +56,14 @@ class Jogo
                 inimigo inimigo1 = new inimigo("Monstro",100,400);
                 inimigo1.atacar(personagem1);
                 inimigo1.Andar();
-                if(personagem1.vida>50){
+                if(personagem1.vida>100){
                     Console.WriteLine("Dama Vermelha com a vida cheia");
-                }else if(personagem1.vida<50){
+                }else if(personagem1.vida>40){
                    Console.WriteLine("Dama Vermelha esta morrendo"); 
                 }else{
                     Console.WriteLine("Dama Vermelha morreu!");
                 }
+                //Verifica a vida do Personagem/Ator.
 
                 
 
