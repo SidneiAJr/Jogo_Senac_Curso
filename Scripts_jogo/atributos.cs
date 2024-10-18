@@ -33,7 +33,7 @@ class inimigo{
     public string tipo;
     public void atacar(personagem meuPersonagem){
          meuPersonagem.vida -= forca;
-         Console.WriteLine($"O inimigo do tipo {tipo},ataca Personagem {meuPersonagem.nome} abaixando sua vida, para {meuPersonagem.vida} Pontos de vida");
+         Console.WriteLine($"O inimigo {tipo},ataca Personagem {meuPersonagem.nome} abaixando sua vida, para {meuPersonagem.vida} Pontos de vida");
        }
        public void Andar(){
        }
@@ -59,7 +59,7 @@ class Jogo
                 //Verifica a vida do personagem.
                 if(personagem1.vida>100){
                     Console.WriteLine("******Dama Vermelha com a vida cheia*****");
-                }else if(personagem1.vida>40){
+                }else if(personagem1.vida<30){
                    Console.WriteLine("*******Dama Vermelha esta morrendo*******"); 
                 }else{
                     Console.WriteLine("Dama Vermelha Tomou dano critico");
@@ -73,7 +73,12 @@ class Jogo
                   Console.WriteLine("A vida do personagem esta muito baixa, Cuidado!");  
                 }
                 
-
+              for(int i=0; personagem1.vida<100; personagem1.vida++){
+               Console.WriteLine($"O personagem {personagem1.nome}: {personagem1.vida}");
+               personagem1.vida=personagem1.vida+1;
+               personagem1.vida --;
+              }
+              
 
             }
 }    
