@@ -76,7 +76,7 @@ class Jogo
               for(int i=0; personagem1.vida<100; personagem1.vida++){
                Console.WriteLine($"O personagem {personagem1.nome}: {personagem1.vida}");
                personagem1.vida=personagem1.vida+1;
-               personagem1.vida --;
+               personagem1.vida ++;
               }
               
 
