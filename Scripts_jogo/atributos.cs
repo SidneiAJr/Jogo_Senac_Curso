@@ -53,18 +53,25 @@ class Jogo
                 personagem personagem1 = new personagem("Dama Vermelha",5,100,0.45,0.75);
                 personagem1.atacar();
                 personagem1.Andar();
-                inimigo inimigo1 = new inimigo("Monstro",100,400);
+                inimigo inimigo1 = new inimigo("Monstro",50,400);
                 inimigo1.atacar(personagem1);
                 inimigo1.Andar();
+                //Verifica a vida do personagem.
                 if(personagem1.vida>100){
                     Console.WriteLine("Dama Vermelha com a vida cheia");
                 }else if(personagem1.vida>40){
                    Console.WriteLine("Dama Vermelha esta morrendo"); 
                 }else{
-                    Console.WriteLine("Dama Vermelha morreu!");
+                    Console.WriteLine("Dama Vermelha Tomou dano critico");
                 }
-                //Verifica a vida do Personagem/Ator.
-
+                //Aplica status e Buff.
+                if(personagem1.vida>100){
+                 Console.WriteLine("Dama Vermelha esta sem status");   
+                }else if(personagem1.vida>40){
+                 Console.WriteLine("Status de Roubo de vida e cura aumentado,Buff Ativado!");
+                }else{
+                  Console.WriteLine("A vida do personagem esta muito baixa, Cuidado!");  
+                }
                 
 
 
