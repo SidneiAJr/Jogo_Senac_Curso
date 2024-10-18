@@ -1,0 +1,10 @@
+===============================
+1- Personagem jogaveis: Lutador("Fight")
+2- Personagem Jogavel caçador runico.
+3- Personagem Jogavel dama vermalha.
+4- Tanker superpesado.
+
+1- Atributos do personagem 1, Armadura, vida, baixa mobilidade.
+2- Atributos do personagem 2, Armadura, vida, baixa mobilidade, magia e cura.
+3- Atributos do personagem 3, Roubo de vida, ult berserk, cura, chance critica elevada, e ganho de vida base aumentado.
+4- Atributos do personagem 4, vida base aumentada, 
