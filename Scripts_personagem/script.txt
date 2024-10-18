@@ -13,3 +13,4 @@
 4 - Vida base 100 vel ataque 0.45 , defesa 300.
 
 * Monstro fornece 25 de xp para upar, mods disponiveis e trancendencia. 
+* No começo somente 5 classes estão disponiveis. 
