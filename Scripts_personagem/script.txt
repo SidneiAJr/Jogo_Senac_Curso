@@ -9,5 +9,5 @@
 3- Atributos do personagem 3, Roubo de vida, ult berserk, cura, chance critica elevada, e ganho de vida base aumentado.
 4- Atributos do personagem 4, vida base aumentada, escudo, dano recebido reduzido, pele de ferro, dano reduzido, velocidade de ataque reduzida, cura aumentada e dano aumentado com % de vida perdida. 
 
-3 - vida base 100, vel ataque 0.80, defesa 25, regem de vida 0.25 fora de combate, rajada de sangue abaixo de 50% ganha vel ataque ampliado.
-4 - vida base 100 vel ataque 0.45 , defesa 300.
+3 - Vida base 100, vel ataque 0.80, defesa 25, regem de vida 0.25 fora de combate, rajada de sangue abaixo de 50% ganha vel ataque ampliado e chance critica, quando utado reduz o controle de grupo.
+4 - Vida base 100 vel ataque 0.45 , defesa 300.
