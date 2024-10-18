@@ -11,3 +11,5 @@
 
 3 - Vida base 100, vel ataque 0.80, defesa 25, regem de vida 0.25 fora de combate, rajada de sangue abaixo de 50% ganha vel ataque ampliado e chance critica, quando utado reduz o controle de grupo.
 4 - Vida base 100 vel ataque 0.45 , defesa 300.
+
+* Monstro fornece 25 de xp para upar, mods disponiveis e trancendencia. 
