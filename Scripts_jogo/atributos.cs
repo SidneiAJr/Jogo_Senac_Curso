@@ -58,9 +58,9 @@ class Jogo
                 inimigo1.Andar();
                 //Verifica a vida do personagem.
                 if(personagem1.vida>100){
-                    Console.WriteLine("Dama Vermelha com a vida cheia");
+                    Console.WriteLine("******Dama Vermelha com a vida cheia*****");
                 }else if(personagem1.vida>40){
-                   Console.WriteLine("Dama Vermelha esta morrendo"); 
+                   Console.WriteLine("*******Dama Vermelha esta morrendo*******"); 
                 }else{
                     Console.WriteLine("Dama Vermelha Tomou dano critico");
                 }
@@ -68,7 +68,7 @@ class Jogo
                 if(personagem1.vida>100){
                  Console.WriteLine("Dama Vermelha esta sem status");   
                 }else if(personagem1.vida>40){
-                 Console.WriteLine("Status de Roubo de vida e cura aumentado,Buff Ativado!");
+                 Console.WriteLine("******Status de Roubo de vida e cura aumentado,Buff Ativado!******");
                 }else{
                   Console.WriteLine("A vida do personagem esta muito baixa, Cuidado!");  
                 }
