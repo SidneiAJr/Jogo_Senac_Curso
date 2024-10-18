@@ -53,9 +53,16 @@ class Jogo
                 personagem personagem1 = new personagem("Dama Vermelha",5,100,0.45,0.75);
                 personagem1.atacar();
                 personagem1.Andar();
-                inimigo inimigo1 = new inimigo("Monstro",5,400);
+                inimigo inimigo1 = new inimigo("Monstro",100,400);
                 inimigo1.atacar(personagem1);
                 inimigo1.Andar();
+                if(personagem1.vida>50){
+                    Console.WriteLine("Dama Vermelha com a vida cheia");
+                }else if(personagem1.vida<50){
+                   Console.WriteLine("Dama Vermelha esta morrendo"); 
+                }else{
+                    Console.WriteLine("Dama Vermelha morreu!");
+                }
 
                 
 
