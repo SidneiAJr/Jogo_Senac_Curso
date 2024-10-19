@@ -10,17 +10,18 @@ using System;
        public double roubovida;
        public int vida;
        public double velataque;
+       public double cura;
 
        public void atacar(){
-         Console.WriteLine($"Personagem {nome} Ataca com forca de {forca}, e tem de velocidade de ataque {velataque}, com roubo de vida de {roubovida}");
+         Console.WriteLine($"Personagem {nome} Ataca com forca de {forca}, e tem de velocidade de ataque {velataque}, com roubo de vida de {roubovida}, a sua cura é {cura}.");
        }
-       }
-       public personagem(string nomepersonagem,int forcaInicial,int VidaInicial, double velataque2,double roubo){
+       public personagem(string nomepersonagem,int forcaInicial,int VidaInicial, double velataque2,double roubo,double curabase){
           nome = nomepersonagem;
           forca = forcaInicial;
           vida = VidaInicial;
           velataque = velataque2;
           roubovida = roubo;
+          cura = curabase;
        }
 }
 
@@ -30,16 +31,20 @@ class Jogo
 {
             static void Main(string[] arg){
                 //Criar um personagem
-                personagem personagem1 = new personagem("Dama Vermelha",5,100,0.45,0.75);
+                personagem personagem1 = new personagem("Dama Vermelha",15,200,0.45,0.75,0.45);
                 personagem1.atacar();
-                personagem1.Andar();
                 //Verifica a vida do personagem.
                 
-              for(int i=0; personagem1.vida<100; personagem1.vida++){
-               Console.WriteLine($"O personagem {personagem1.nome}: {personagem1.vida}");
-               personagem1.vida=personagem1.vida;
-               personagem1.vida ++;
+              while(personagem1.vida >0){
+                  Console.WriteLine($"{personagem1.vida}A vida do personagem esta aumentado {personagem1.roubovida} a cura da {personagem1.cura} a forca{personagem1.forca}");
+                  personagem1.forca++;
+                  personagem1.roubovida++;
+                  personagem1.velataque++;
+                  personagem1.cura++;
+                  
               }
+              
+              
               
 
             }
