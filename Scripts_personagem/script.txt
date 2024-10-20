@@ -14,3 +14,9 @@
 
 * Monstro fornece 25 de xp para upar, mods disponiveis e trancendencia. 
 * No começo somente 5 classes estão disponiveis. 
+*Teclas para mover: W S A D;
+*Teclas para correr: Shift ou double shift;
+*Ult Letra R;
+*Arvores de personagem Dama vermelha Primeira fase.
+
+
