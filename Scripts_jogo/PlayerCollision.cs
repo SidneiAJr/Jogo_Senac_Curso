@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public AudioClip collectSound; // Som de coleta
+    public ParticleSystem collectEffect; // Efeito visual de coleta
     private AudioSource audioSource;
+    public ParticleSystem copia;
 
     private void Start()
     {
@@ -23,7 +25,14 @@ public class PlayerCollision : MonoBehaviour
         // Aqui você pode adicionar outras interações, como efeitos sonoros, pontos, etc.
         // Desativa o item coletado
         audioSource.PlayOneShot(collectSound);
+        
+        Instantiate(collectEffect, hit.transform.position, Quaternion.identity);
+        copia = Instantiate(collectEffect, hit.transform.position, Quaternion.identity);
+        copia.gameObject.SetActive(true);
+
         hit.gameObject.SetActive(false);
+
+
     }
    }
 }
