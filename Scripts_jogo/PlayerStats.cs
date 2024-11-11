@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -8,7 +10,13 @@ public class PlayerStats : MonoBehaviour
     public int score = 0; // Pontuação do jogador
 
     public Slider healthBar; // Referência à barra de vida
-    public Text scoreText; // Referência ao texto de pontuação
+    public TMP_Text scoreText; // Referência ao texto de pontuação
+
+    public Image healthBarFill;
+    private Color originalColor;
+    private bool isFlashing = false;
+    private float flashDuration = 0.2f;
+    
 
     void Start()
     {
@@ -16,6 +24,7 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+        originalColor=healthBarFill.color;
         UpdateScoreText();
     }
 
@@ -23,8 +32,12 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Garante que a vida não fique negativa
+        //currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Garante que a vida não fique negativa
         healthBar.value = currentHealth;
+        if(currentHealth > 0 && !isFlashing)
+        {
+           StartCoroutine(FlashRed());
+        }
     }
 
     // Método para adicionar pontos
@@ -39,4 +52,12 @@ public class PlayerStats : MonoBehaviour
     {
         scoreText.text = "Pontuação: " + score;
     }
+    private IEnumerator FlashRed(){
+        isFlashing=true;
+        healthBarFill.color = Color.red;
+        yield return new WaitForSeconds(flashDuration);
+        healthBarFill.color = originalColor;
+        isFlashing = false;
+    }
+
 }
