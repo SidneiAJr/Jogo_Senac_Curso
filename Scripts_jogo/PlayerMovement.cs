@@ -31,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         // Obter entrada do usuário (teclas W, A, S, D)
         float horizontalInput = Input.GetAxis("Horizontal"); // Entrada para esquerda e direita
         float verticalInput = Input.GetAxis("Vertical");     // Entrada para frente e trás
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
 
         // Cria um vetor de direção com base na entrada
         Vector3 moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
