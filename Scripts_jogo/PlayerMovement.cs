@@ -9,7 +9,14 @@ public class PlayerMovement : MonoBehaviour
     
     private CharacterController controller; // Referência ao CharacterController
 
-    
+    public float jump = -2f;
+
+    public float gravity = - 9.89f;
+
+    private Vector3 velocity;
+
+    private bool isGrounded;
+
     //O método Start() é chamado UMA VEZ assim que o jogo começa
     void Start()
     {
