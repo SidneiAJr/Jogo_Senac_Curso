@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
+    //private Vector3 playerVelocity; Verificar qual funciona.
+
     //O método Start() é chamado UMA VEZ assim que o jogo começa
     void Start()
     {
