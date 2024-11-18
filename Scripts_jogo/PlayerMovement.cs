@@ -17,8 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
-    //private Vector3 playerVelocity; Verificar qual funciona.
-
     //O método Start() é chamado UMA VEZ assim que o jogo começa
     void Start()
     {
@@ -33,26 +31,11 @@ public class PlayerMovement : MonoBehaviour
         // Obter entrada do usuário (teclas W, A, S, D)
         float horizontalInput = Input.GetAxis("Horizontal"); // Entrada para esquerda e direita
         float verticalInput = Input.GetAxis("Vertical");     // Entrada para frente e trás
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
 
-        // Makes the player jump
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if(isGrounded && velocity.y <0)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+            velocity.y = -2f;
         }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
 
         // Cria um vetor de direção com base na entrada
         Vector3 moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
