@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     private int ammo_Muni;
     private int Armor;
     private int base_armor;
+    private float dano;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerStats : MonoBehaviour
         originalColor=healthBarFill.color;
         base_armor = Armor;
         UpdateScoreText();
+        dano = 25.5;
     }
 
     // Método para atualizar a vida
@@ -62,7 +64,12 @@ public class PlayerStats : MonoBehaviour
         UpdateScoreText();
         
     }
-
+     public void AddDano(float dano_base )
+    {
+        dano_base += Dano;
+        UpdateScoreText();
+        
+    }
     // Atualiza o texto da pontuação
     void UpdateScoreText()
     {
