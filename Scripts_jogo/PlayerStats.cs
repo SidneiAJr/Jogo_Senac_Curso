@@ -8,25 +8,28 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 100; // Vida máxima
     public int currentHealth; // Vida atual do personagem
     public int score = 0; // Pontuação do jogador
-
     public Slider healthBar; // Referência à barra de vida
     public TMP_Text scoreText; // Referência ao texto de pontuação
-
     public Image healthBarFill;
     private Color originalColor;
     private bool isFlashing = false;
     private float flashDuration = 0.2f;
-    private int munition;
+    public int munition;
     private int ammo_Muni;
+    private int Armor;
+    private int base_armor;
+
     void Start()
     {
         // Define a vida inicial como o valor máximo
-        munition = 5;
+        munition = 10;
+        Armor = 10; 
         ammo_Muni = munition;
         currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
-        originalColor=healthBarFill.color;   
+        originalColor=healthBarFill.color;
+        base_armor = Armor;
         UpdateScoreText();
     }
 
@@ -43,6 +46,11 @@ public class PlayerStats : MonoBehaviour
     }
 
     // Método para adicionar pontos
+    public void Addarmor(int armadura)
+    {
+      Armor += armadura;
+      UpdateScoreText();
+    }
     public void AddScore(int points)
     {
         score += points;
@@ -52,6 +60,7 @@ public class PlayerStats : MonoBehaviour
     {
         munition += cartucho;
         UpdateScoreText();
+        
     }
 
     // Atualiza o texto da pontuação
