@@ -26,7 +26,7 @@ public class muni : MonoBehaviour
         if (other.CompareTag("muni"))
         {
             //score += 10;  // Aumenta a pontuação
-            munition += 5;
+            munition += 20;
 
             // Adiciona pontos ao chamar o método AddScore de PlayerStats; // Adiciona 10 pontos (pode ajustar o valor como preferir)
             playerStats.Addmunition(10);
