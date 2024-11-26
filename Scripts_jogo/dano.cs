@@ -28,10 +28,10 @@ public class Coleta : MonoBehaviour
              dano +=7.5;
 
             // Adiciona pontos ao chamar o método AddScore de PlayerStats; // Adiciona 10 pontos (pode ajustar o valor como preferir)
-            playerStats.Addarmor(10);
+            playerStats.Adddano(10);
             audioSource.PlayOneShot(collectSound);
             Destroy(other.gameObject);  // Remove o coletável
-            Debug.Log("Armadura Coletada " +  Armor);
+            Debug.Log("Dano Aumentado " +  dano);
         }
     }
 }
