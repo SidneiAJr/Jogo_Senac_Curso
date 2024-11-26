@@ -16,15 +16,17 @@ public class PlayerStats : MonoBehaviour
     private Color originalColor;
     private bool isFlashing = false;
     private float flashDuration = 0.2f;
-    
-
+    private int munition;
+    private int ammo_Muni;
     void Start()
     {
         // Define a vida inicial como o valor máximo
-        currentHealth = maxHealth;
+        munition = 5;
+        ammo_Muni = munition;
+        currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
-        originalColor=healthBarFill.color;
+        originalColor=healthBarFill.color;   
         UpdateScoreText();
     }
 
@@ -44,6 +46,11 @@ public class PlayerStats : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
+        UpdateScoreText();
+    }
+    public void Addmunition(int cartucho)
+    {
+        munition += cartucho;
         UpdateScoreText();
     }
 
