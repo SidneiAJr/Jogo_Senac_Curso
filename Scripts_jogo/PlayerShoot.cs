@@ -7,17 +7,20 @@ public class PlayerShoot : MonoBehaviour
     public float projectileSpeed = 20f; // Velocidade do projétil
     public AudioClip collectSound; // Som de coleta
     private AudioSource audioSource; 
+
+    private PlayerStats stats;
     
     private void Start()
     {
         // Obtém o componente de áudio
         audioSource = gameObject.AddComponent<AudioSource>();
+        stats =  GetComponent<PlayerStats>();
     }
     
     void Update()
     {
         // Verifica se o jogador pressionou a tecla para disparar (pode ser "Espaço")
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot(); // Executa o método de disparo
         }
@@ -25,6 +28,12 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
+        stats.munition -= 1;
+        if(stats.munition <= 0)
+        {
+            stats.munition = 0;
+            Debug.Log("Voce esta sem munição");
+        } else {
         // Instancia o projétil no ponto de disparo com rotação padrão
         GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
 
@@ -34,6 +43,7 @@ public class PlayerShoot : MonoBehaviour
         {
             rb.velocity = transform.forward * projectileSpeed; // Define a velocidade do projétil
             audioSource.PlayOneShot(collectSound);
+        }
         }
     }
 }
