@@ -14,11 +14,14 @@ public class PlayerStats : MonoBehaviour
     private Color originalColor;
     private bool isFlashing = false;
     private float flashDuration = 0.2f;
-    public int munition;
-    private int ammo_Muni;
-    private int Armor;
-    private int base_armor;
-    private float dano;
+    public int munition; // Referencia a munição
+    private int ammo_Muni; //Referencia a quantidade de munição
+    private int Armor; // Referencia a armadura do player
+    private int base_armor; // Referencia a armadura base para variavel
+    private float dano; // Referencia do dano para buffar o tiro do player
+    public Slider ammoBar; // Slider da munição
+    public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
+    public Image ammoFill;
 
     void Start()
     {
@@ -26,6 +29,10 @@ public class PlayerStats : MonoBehaviour
         munition = 10;
         Armor = 10; 
         ammo_Muni = munition;
+        ammo_Muni.ammo_muni = munition;
+        ammo_Muni.value=munition;
+        originalColor=ammoFill.color;
+        UpdateMunicaoPlayer();
         currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
