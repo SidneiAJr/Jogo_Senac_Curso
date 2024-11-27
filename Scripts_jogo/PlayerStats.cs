@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     private int ammo_Muni; //Referencia a quantidade de munição
     private int Armor; // Referencia a armadura do player
     private int baseArmor; // Referencia a armadura base para variavel
-    private float dano; // Referencia do dano para buffar o tiro do player
+    private float danoBase; // Referencia do dano para buffar o tiro do player
     public Slider ammoBar; // Slider da munição
     public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
     public Image ammoFill; // fill da ammo
@@ -26,13 +26,12 @@ public class PlayerStats : MonoBehaviour
     public TMP_Text ArmaduraPlayer; // Referencia ao texto de municao do player
     public Image armorFill; //fill da armadura
     
-
     void Start()
     {
         // Define a vida inicial como o valor máximo
         munition = 10;
         Armor = 10; 
-        dano = 5.5;
+        danoBase = 5.5;
         ammo_Muni = munition;
         ammo_Muni.ammo_muni = munition;
         ammo_Muni.value=munition;
@@ -52,12 +51,11 @@ public class PlayerStats : MonoBehaviour
         baseArmor = Armor;
         UpdateArmaduraPlayerText();
     }
-
     // Método para atualizar a vida
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        //currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Garante que a vida não fique negativa
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Garante que a vida não fique negativa
         healthBar.value = currentHealth;
         if(currentHealth > 0 && !isFlashing)
         {
@@ -85,10 +83,9 @@ public class PlayerStats : MonoBehaviour
         
     }
     // Método para adicionar Buff de dano
-     public void Adddano(float dano_base )
+     public void AdddanoBase(float buff)
     {
-        dano_base += Dano;
-        UpdateScoreText();
+        buff += Dano;
         
     }
     // Atualiza o texto da pontuação
@@ -99,10 +96,6 @@ public class PlayerStats : MonoBehaviour
     void UpdateArmaduraPlayerText()
     {
         ArmaduraPlayer.text = "Armadura " + Armor;
-    }
-    void UpdateMunicaoPlayerText()
-    {
-        MunicaoPlayer.text = "Municação " + munition;
     }
     void UpdateMunicaoPlayerText()
     {
