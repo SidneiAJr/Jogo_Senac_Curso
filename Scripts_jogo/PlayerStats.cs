@@ -46,8 +46,8 @@ public class PlayerStats : MonoBehaviour
         UpdateScoreText();
         baseArmor = Armor ;   
         armorBar.baseArmor = Armor;
-        healthBar.value = currentHealth;
-        originalColor=healthBarFill.color;
+        armorBar.value = Armor;
+        originalColor=armorBarFill.color;
         base_armor = Armor;
         ArmaduraPlayerText();
         
