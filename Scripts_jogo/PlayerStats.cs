@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
         // Define a vida inicial como o valor máximo
         munition = 10;
         Armor = 10; 
-        dano = 25.5;
+        dano = 5.5;
         ammo_Muni = munition;
         ammo_Muni.ammo_muni = munition;
         ammo_Muni.value=munition;
