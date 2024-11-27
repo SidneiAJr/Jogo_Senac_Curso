@@ -44,12 +44,12 @@ public class PlayerStats : MonoBehaviour
         originalColor=healthBarFill.color;
         base_armor = Armor;
         UpdateScoreText();
-        baseArmor = armor ;   
-        healthBar.maxValue = maxHealth;
+        baseArmor = Armor ;   
+        armorBar.baseArmor = Armor;
         healthBar.value = currentHealth;
         originalColor=healthBarFill.color;
         base_armor = Armor;
-        UpdateScoreText();
+        ArmaduraPlayerText();
         
     }
 
