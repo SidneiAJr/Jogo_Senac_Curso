@@ -17,17 +17,22 @@ public class PlayerStats : MonoBehaviour
     public int munition; // Referencia a munição
     private int ammo_Muni; //Referencia a quantidade de munição
     private int Armor; // Referencia a armadura do player
-    private int base_armor; // Referencia a armadura base para variavel
+    private int baseArmor; // Referencia a armadura base para variavel
     private float dano; // Referencia do dano para buffar o tiro do player
     public Slider ammoBar; // Slider da munição
     public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
     public Image ammoFill;
+    public Slider armorBar;
+    public TMP_Text ArmaduraPlayer; // Referencia ao texto de municao do player
+    public Image armorFill;
+    
 
     void Start()
     {
         // Define a vida inicial como o valor máximo
         munition = 10;
         Armor = 10; 
+        dano = 25.5;
         ammo_Muni = munition;
         ammo_Muni.ammo_muni = munition;
         ammo_Muni.value=munition;
@@ -39,7 +44,13 @@ public class PlayerStats : MonoBehaviour
         originalColor=healthBarFill.color;
         base_armor = Armor;
         UpdateScoreText();
-        dano = 25.5;
+        baseArmor = armor ;   
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
+        originalColor=healthBarFill.color;
+        base_armor = Armor;
+        UpdateScoreText();
+        
     }
 
     // Método para atualizar a vida
