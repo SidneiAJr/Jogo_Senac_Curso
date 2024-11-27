@@ -21,10 +21,10 @@ public class PlayerStats : MonoBehaviour
     private float dano; // Referencia do dano para buffar o tiro do player
     public Slider ammoBar; // Slider da munição
     public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
-    public Image ammoFill;
-    public Slider armorBar;
+    public Image ammoFill; // fill da ammo
+    public Slider armorBar;//Slide da armadura
     public TMP_Text ArmaduraPlayer; // Referencia ao texto de municao do player
-    public Image armorFill;
+    public Image armorFill; //fill da armadura
     
 
     void Start()
