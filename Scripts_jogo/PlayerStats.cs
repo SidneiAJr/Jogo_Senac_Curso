@@ -15,7 +15,6 @@ public class PlayerStats : MonoBehaviour
     private bool isFlashing = false;
     private float flashDuration = 0.2f;
     public int munition; // Referencia a munição
-    private int ammo_Muni; //Referencia a quantidade de munição
     private int Armor; // Referencia a armadura do player
     private int baseArmor; // Referencia a armadura base para variavel
     public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
@@ -37,7 +36,6 @@ public class PlayerStats : MonoBehaviour
         UpdateScoreText();
         //Vida do player
         baseArmor = Armor ;   
-        baseArmor = Armor;
         UpdateArmaduraPlayerText();
     }
     // Método para atualizar a vida
