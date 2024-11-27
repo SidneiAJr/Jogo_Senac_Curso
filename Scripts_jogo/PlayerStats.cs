@@ -18,24 +18,16 @@ public class PlayerStats : MonoBehaviour
     private int ammo_Muni; //Referencia a quantidade de munição
     private int Armor; // Referencia a armadura do player
     private int baseArmor; // Referencia a armadura base para variavel
-    private float danoBase; // Referencia do dano para buffar o tiro do player
-    public Slider ammoBar; // Slider da munição
     public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
     public Image ammoFill; // fill da ammo
-    public Slider armorBar;//Slide da armadura
     public TMP_Text ArmaduraPlayer; // Referencia ao texto de municao do player
     public Image armorFill; //fill da armadura
-    
+
     void Start()
     {
-        // Define a vida inicial como o valor máximo
-        munition = 10;
-        Armor = 10; 
-        danoBase = 5.5;
-        ammo_Muni = munition;
-        ammo_Muni.ammo_muni = munition;
-        ammo_Muni.value=munition;
-        originalColor=ammoFill.color;
+        // Define a armadura
+        munition = 10; //Munição do player
+        Armor = 10; // Armadura base do Player
         UpdateMunicaoPlayerText();
         //Munição Player
         currentHealth = maxHealth;   
@@ -45,9 +37,6 @@ public class PlayerStats : MonoBehaviour
         UpdateScoreText();
         //Vida do player
         baseArmor = Armor ;   
-        armorBar.baseArmor = Armor;
-        armorBar.value = Armor;
-        originalColor=armorBarFill.color;
         baseArmor = Armor;
         UpdateArmaduraPlayerText();
     }
@@ -80,12 +69,6 @@ public class PlayerStats : MonoBehaviour
     {
         munition += cartucho;
         UpdateMunicaoPlayerText();
-        
-    }
-    // Método para adicionar Buff de dano
-     public void AdddanoBase(float buff)
-    {
-        buff += Dano;
         
     }
     // Atualiza o texto da pontuação
