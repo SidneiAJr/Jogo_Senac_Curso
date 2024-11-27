@@ -37,20 +37,20 @@ public class PlayerStats : MonoBehaviour
         ammo_Muni.ammo_muni = munition;
         ammo_Muni.value=munition;
         originalColor=ammoFill.color;
-        UpdateMunicaoPlayer();
+        UpdateMunicaoPlayerText();
+        //Munição Player
         currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         originalColor=healthBarFill.color;
-        base_armor = Armor;
         UpdateScoreText();
+        //Vida do player
         baseArmor = Armor ;   
         armorBar.baseArmor = Armor;
         armorBar.value = Armor;
         originalColor=armorBarFill.color;
-        base_armor = Armor;
-        ArmaduraPlayerText();
-        
+        baseArmor = Armor;
+        UpdateArmaduraPlayerText();
     }
 
     // Método para atualizar a vida
@@ -65,24 +65,27 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    // Método para adicionar pontos
+    // Método para adicionar armadura
     public void Addarmor(int armadura)
     {
       Armor += armadura;
-      UpdateScoreText();
+      UpdateArmaduraPlayerText();
     }
+    // Método para adicionar pontos
     public void AddScore(int points)
     {
         score += points;
         UpdateScoreText();
     }
+    // Método para adicionar Munição
     public void Addmunition(int cartucho)
     {
         munition += cartucho;
-        UpdateScoreText();
+        UpdateMunicaoPlayerText();
         
     }
-     public void AddDano(float dano_base )
+    // Método para adicionar Buff de dano
+     public void Adddano(float dano_base )
     {
         dano_base += Dano;
         UpdateScoreText();
@@ -92,6 +95,18 @@ public class PlayerStats : MonoBehaviour
     void UpdateScoreText()
     {
         scoreText.text = "Pontuação: " + score;
+    }
+    void UpdateArmaduraPlayerText()
+    {
+        ArmaduraPlayer.text = "Armadura " + Armor;
+    }
+    void UpdateMunicaoPlayerText()
+    {
+        MunicaoPlayer.text = "Municação " + munition;
+    }
+    void UpdateMunicaoPlayerText()
+    {
+        MunicaoPlayer.text = "Municação " + munition;
     }
     private IEnumerator FlashRed(){
         isFlashing=true;
