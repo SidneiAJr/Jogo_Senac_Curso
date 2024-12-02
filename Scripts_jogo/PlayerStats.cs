@@ -23,6 +23,8 @@ public class PlayerStats : MonoBehaviour
     public Image armorFill; //fill da armadura
     public TMP_Text EscudoPlayer; //Referencia ao escudo player
     private int Escudo;
+    private int stamina;
+    public TMP_Text StaminaPlayer; // Referencia ao texto de municao do player
 
     void Start()
     {
@@ -41,6 +43,7 @@ public class PlayerStats : MonoBehaviour
         baseArmor = Armor ;   
         UpdateArmaduraPlayerText();
         UpdateEscudoTeste();
+        UpdateStamina();
     }
     // Método para atualizar a vida
     public void TakeDamage(int damage)
@@ -73,31 +76,46 @@ public class PlayerStats : MonoBehaviour
         UpdateMunicaoPlayerText();
         
     }
+    // Método para adicionar Escudo
     public void Addescudo(int escudobase)
     {
         Escudo += escudobase;
         UpdateEscudoTeste();
         
     }
+    // Método para adicionar Stamina
+    public void AddStamina(int cansado)
+    {
+        cansado += stamina;
+        UpdateStamina();
 
-    // Atualiza o texto da pontuação
+    }
+    //Da Update Na Stamina do Player no TMP
+    void UpdateStamina()
+    {
+      StaminaPlayer.text = "Stamina" + stamina;
+    }
+    // Atualiza o Score TMP
     void UpdateScoreText()
     {
         scoreText.text = "Pontuação: " + score;
     }
+    //Da Update Na armor TMP
     void UpdateArmaduraPlayerText()
     {
         ArmaduraPlayer.text = "Armadura " + Armor;
     }
+    //Da Update na muni TMP
     public void UpdateMunicaoPlayerText()
     {
         MunicaoPlayer.text = "Munição " + munition;
     }
+    //Da Update No Escudo TMP
     void UpdateEscudoTeste()
     {
         EscudoPlayer.text = "Escudo " + Escudo;
     }
-
+    //Luzinha da vida do player
     private IEnumerator FlashRed(){
         isFlashing=true;
         healthBarFill.color = Color.red;
