@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class ObstacleCollision : MonoBehaviour
 {
-    private  PlayerStats playStats;
-    private  PlayerStats currentHealth;
     private PlayerStats playerStats; // Referência ao PlayerStats 
+    private PlayerStats vidadoplayer;
+    private PlayerStats stats;
 
     private void Start() { 
         playerStats = GetComponent<PlayerStats>(); 
+        stats =  GetComponent<PlayerStats>();
     } 
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.CompareTag("Inimigo"))
         {
-        playerStats.TakeDamage(10); 
-        playerStats.currentHealth -= 10;
-           if(playerStats.currentHealth<=0)
+        stats.TakeDamage(10); 
+           if(stats.currentHealth<=0)
            {
-           }else{
-            Debug.Log("Seu HP esta baixo Cuidado!" + currentHealth);
+           stats.currentHealth = 0;
+           stats.UpdateVidaPlayer();
            }
             
         }
