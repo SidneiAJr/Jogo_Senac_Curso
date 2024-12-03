@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleCollision : MonoBehaviour
 {
     private  PlayerStats playStats;
-    private  PlayerStats maxHealth;
+    private  PlayerStats currentHealth;
     private PlayerStats playerStats; // Referência ao PlayerStats 
 
     private void Start() { 
@@ -14,9 +14,14 @@ public class ObstacleCollision : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Inimigo"))
         {
-            playerStats.TakeDamage(1); 
-            playerStats.maxHealth -= 1;
-            Debug.Log("Voce foi Atigindo" + maxHealth);
+        playerStats.TakeDamage(10); 
+        playerStats.currentHealth -= 10;
+           if(playerStats.currentHealth<=0)
+           {
+           }else{
+            Debug.Log("Seu HP esta baixo Cuidado!" + currentHealth);
+           }
+            
         }
     }
 }
