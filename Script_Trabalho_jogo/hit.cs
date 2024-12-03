@@ -14,7 +14,7 @@ public class WeaponShoot : MonoBehaviour
     {
        if(Input.GetMouseButtonDown(0))
        {
-        animator.SetTrigger("Shoot");
+        animator.SetTrigger("Bater");
        } 
     }
 }
