@@ -23,15 +23,19 @@ public class PlayerStats : MonoBehaviour
     public Image armorFill; //fill da armadura
     public TMP_Text EscudoPlayer; //Referencia ao escudo player
     private int Escudo;
-    private int stamina;
+    public int stamina;
     public TMP_Text StaminaPlayer; // Referencia ao texto de municao do player
+    public TMP_Text PlayerVida; // Referencia ao texto de municao do player
+    
+
 
     void Start()
     {
         // Define a armadura
         munition = 10; //Munição do player
-        Armor = 10; // Armadura base do Player
+        Armor = 30; // Armadura base do Player
         Escudo = 100; //Escudo do player
+        stamina = 30; //Stamina do player
         UpdateMunicaoPlayerText();
         //Munição Player
         currentHealth = maxHealth;   
@@ -44,6 +48,7 @@ public class PlayerStats : MonoBehaviour
         UpdateArmaduraPlayerText();
         UpdateEscudoTeste();
         UpdateStamina();
+        UpdateVidaPlayer();
     }
     // Método para atualizar a vida
     public void TakeDamage(int damage)
@@ -89,6 +94,16 @@ public class PlayerStats : MonoBehaviour
         cansado += stamina;
         UpdateStamina();
 
+    }
+    public void AddVida(int vidaplayer2)
+    {
+        vidaplayer2 += maxHealth;
+        UpdateVidaPlayer();
+
+    }
+    public void UpdateVidaPlayer()
+    {
+      PlayerVida.text = "Vida" + maxHealth;
     }
     //Da Update Na Stamina do Player no TMP
     void UpdateStamina()
