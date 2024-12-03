@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int maxHealth = 100; // Vida máxima
+    public int maxHealth; // Vida máxima
     public int currentHealth; // Vida atual do personagem
     public int score = 0; // Pontuação do jogador
     public Slider healthBar; // Referência à barra de vida
@@ -16,7 +16,6 @@ public class PlayerStats : MonoBehaviour
     private float flashDuration = 0.2f;
     public int munition; // Referencia a munição
     private int Armor; // Referencia a armadura do player
-    private int baseArmor; // Referencia a armadura base para variavel
     public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
     public Image ammoFill; // fill da ammo
     public TMP_Text ArmaduraPlayer; // Referencia ao texto de municao do player
@@ -25,10 +24,7 @@ public class PlayerStats : MonoBehaviour
     private int Escudo;
     public int stamina;
     public TMP_Text StaminaPlayer; // Referencia ao texto de municao do player
-    public TMP_Text PlayerVida; // Referencia ao texto de municao do player
-    
-
-
+    public TMP_Text VidaPlayer; // Referencia ao texto de municao do player
     void Start()
     {
         // Define a armadura
@@ -36,19 +32,19 @@ public class PlayerStats : MonoBehaviour
         Armor = 30; // Armadura base do Player
         Escudo = 100; //Escudo do player
         stamina = 30; //Stamina do player
-        UpdateMunicaoPlayerText();
+        maxHealth=300;
         //Munição Player
         currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         originalColor=healthBarFill.color;
         UpdateScoreText();
-        //Vida do player
-        baseArmor = Armor ;   
+        //Vida do player 
         UpdateArmaduraPlayerText();
         UpdateEscudoTeste();
         UpdateStamina();
         UpdateVidaPlayer();
+        UpdateMunicaoPlayerText();
     }
     // Método para atualizar a vida
     public void TakeDamage(int damage)
@@ -95,15 +91,15 @@ public class PlayerStats : MonoBehaviour
         UpdateStamina();
 
     }
-    public void AddVida(int vidaplayer2)
+    public void AddVida(int vidapl)
     {
-        vidaplayer2 += maxHealth;
+        currentHealth += vidapl;
         UpdateVidaPlayer();
 
     }
     public void UpdateVidaPlayer()
     {
-      PlayerVida.text = "Vida" + maxHealth;
+      VidaPlayer.text = "Vida" + currentHealth;
     }
     //Da Update Na Stamina do Player no TMP
     void UpdateStamina()
