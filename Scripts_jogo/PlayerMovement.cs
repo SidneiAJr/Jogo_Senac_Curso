@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6.0f; // Velocidade de movimento do Player
     public float jumpHeight = 2.0f; // Altura do pulo
     public float gravity = -9.81f; // Força da gravidade
-
     private CharacterController controller; // Referência ao CharacterController
     private Vector3 velocity; // Armazena a velocidade do player para gravidade e pulo
     private bool isGrounded; // Verifica se o player está no chão
+    public float Velocidadedecorrida = 15f; //velocidade de corrida
+    private PlayerStats playerStats;//Referencia ao Player Status, onde esta os status do player principal
+    private PlayerStats stamina; //Referencia a stamina do player no playerStats
 
     void Start()
     {
@@ -23,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Verifica se o player está no chão
         isGrounded = controller.isGrounded;
-
         // Reseta a velocidade para evitar acumulação ao tocar o chão
         if (isGrounded && velocity.y < 0)
         {
@@ -52,5 +53,15 @@ public class PlayerMovement : MonoBehaviour
 
         // Move o player verticalmente com base na velocidade
         controller.Move(velocity * Time.deltaTime);
+
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+          speed=Velocidadedecorrida;
+        }
+
+
+
+        
+
     }
 }
