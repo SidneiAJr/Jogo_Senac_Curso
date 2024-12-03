@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float Velocidadedecorrida = 15f; //velocidade de corrida
     private PlayerStats playerStats;//Referencia ao Player Status, onde esta os status do player principal
     private PlayerStats stamina; //Referencia a stamina do player no playerStats
-
     void Start()
     {
         // Obtém o componente CharacterController que está anexado ao Player
@@ -58,10 +57,5 @@ public class PlayerMovement : MonoBehaviour
         {
           speed=Velocidadedecorrida;
         }
-
-
-
-        
-
     }
 }
