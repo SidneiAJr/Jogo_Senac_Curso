@@ -25,6 +25,7 @@ public class PlayerStats : MonoBehaviour
     public int stamina;
     public TMP_Text StaminaPlayer; // Referencia ao texto de municao do player
     public TMP_Text VidaPlayer; // Referencia ao texto de municao do player
+    public float regenlife;
     void Start()
     {
         // Define a armadura
@@ -32,19 +33,20 @@ public class PlayerStats : MonoBehaviour
         Armor = 30; // Armadura base do Player
         Escudo = 100; //Escudo do player
         stamina = 30; //Stamina do player
-        maxHealth=300;
+        maxHealth= 300;
+        regenlife = 0.25;
         //Munição Player
         currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         originalColor=healthBarFill.color;
-        UpdateScoreText();
         //Vida do player 
         UpdateArmaduraPlayerText();
         UpdateEscudoTeste();
         UpdateStamina();
         UpdateVidaPlayer();
         UpdateMunicaoPlayerText();
+        UpdateScoreText();
     }
     // Método para atualizar a vida
     public void TakeDamage(int damage)
@@ -99,12 +101,12 @@ public class PlayerStats : MonoBehaviour
     }
     public void UpdateVidaPlayer()
     {
-      VidaPlayer.text = "Vida" + currentHealth;
+      VidaPlayer.text = "Sua Vida Atual é:" + currentHealth;
     }
     //Da Update Na Stamina do Player no TMP
     void UpdateStamina()
     {
-      StaminaPlayer.text = "Stamina" + stamina;
+      StaminaPlayer.text = "Stamina:" + stamina;
     }
     // Atualiza o Score TMP
     void UpdateScoreText()
@@ -119,12 +121,12 @@ public class PlayerStats : MonoBehaviour
     //Da Update na muni TMP
     public void UpdateMunicaoPlayerText()
     {
-        MunicaoPlayer.text = "Munição " + munition;
+        MunicaoPlayer.text = "Munição:" + munition;
     }
     //Da Update No Escudo TMP
     void UpdateEscudoTeste()
     {
-        EscudoPlayer.text = "Escudo " + Escudo;
+        EscudoPlayer.text = "Escudo: " + Escudo;
     }
     //Luzinha da vida do player
     private IEnumerator FlashRed(){
