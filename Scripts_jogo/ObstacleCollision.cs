@@ -12,7 +12,7 @@ public class ObstacleCollision : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Obstáculo"))
+        if (hit.gameObject.CompareTag("Inimigo"))
         {
             playerStats.TakeDamage(1); 
             playerStats.maxHealth -= 1;
