@@ -7,37 +7,34 @@ public class PlayerStats : MonoBehaviour
 {
     public int maxHealth; // Vida máxima
     public int currentHealth; // Vida atual do personagem
-    public int Experiencia; // Pontuação do jogador
+    public int score = 0; // Pontuação do jogador
     public Slider healthBar; // Referência à barra de vida
+    public TMP_Text scoreText; // Referência ao texto de pontuação
     public Image healthBarFill;
     private Color originalColor;
     private bool isFlashing = false;
     private float flashDuration = 0.2f;
-    private int Armor; // Referencia a armadura do player
+    public int munition; // Referencia a munição
+    public int Armor; // Referencia a armadura do player
+    public TMP_Text MunicaoPlayer; // Referencia ao texto de municao do player
+    public TMP_Text VidaPlayer;
     public Image ammoFill; // fill da ammo
-    public TMP_Text ArmaduraPlayer; // Referencia ao texto de municao do player
-    public Image armorFill; //fill da armadura
-    public int stamina;
-    public TMP_Text StaminaPlayer; // Referencia ao texto de municao do player
-    public TMP_Text VidaPlayer; // Referencia ao texto de municao do player
-    public double regenlife;
-    public Level level;
     void Start()
     {
         // Define a armadura
         Armor = 30; // Armadura base do Player
-        stamina = 30; //Stamina do player
-        maxHealth= 300;
-        regenlife = 0.25;
+        maxHealth= 100;
+        munition = 5;
         //Munição Player
         currentHealth = maxHealth;   
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         originalColor=healthBarFill.color;
         //Vida do player 
-        UpdateArmaduraPlayerText();
-        UpdateStamina();
         UpdateVidaPlayer();
+        UpdateScoreText();
+        UpdateMunicaoPlayerText();
+    
     }
     // Método para atualizar a vida
     public void TakeDamage(int damage)
@@ -50,19 +47,19 @@ public class PlayerStats : MonoBehaviour
            StartCoroutine(FlashRed());
         }
     }
-
     // Método para adicionar armadura
-    public void Addarmor(int armadura)
+    // Método para adicionar pontos
+    public void AddScore(int points)
     {
-      Armor += armadura;
-      UpdateArmaduraPlayerText();
+        score += points;
+        UpdateScoreText();
     }
     // Método para adicionar Stamina
-    public void AddStamina(int cansado)
+     public void Addmunition(int cartucho)
     {
-        cansado += stamina;
-        UpdateStamina();
-
+        munition += cartucho;
+        UpdateMunicaoPlayerText();
+        
     }
     public void AddVida(int vidapl)
     {
@@ -72,19 +69,18 @@ public class PlayerStats : MonoBehaviour
     }
     public void UpdateVidaPlayer()
     {
-      VidaPlayer.text = "Sua Vida Atual é:" + currentHealth;
+      VidaPlayer.text = "Vida:" + currentHealth;
     }
-    //Da Update Na Stamina do Player no TMP
-    void UpdateStamina()
+    // Atualiza o Score TMP
+    void UpdateScoreText()
     {
-      StaminaPlayer.text = "Stamina:" + stamina;
+        scoreText.text = "Pontuação:" + score;
     }
     //Da Update Na armor TMP
-    void UpdateArmaduraPlayerText()
+    public void UpdateMunicaoPlayerText()
     {
-        ArmaduraPlayer.text = "Armadura " + Armor;
+        MunicaoPlayer.text = "Munição:" + munition;
     }
-    //Luzinha da vida do player
     private IEnumerator FlashRed(){
         isFlashing=true;
         healthBarFill.color = Color.red;
