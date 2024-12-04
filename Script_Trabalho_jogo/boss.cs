@@ -1,47 +1,27 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Collections;
 
-public class boss : MonoBehaviour
+public class Boss : MonoBehaviour
 {
-    public int Health; // Vida máxima
-    public GameObject player;
-    private Level level;
-    private int armadura;
+    private PlayerStats playerStats; // Referência ao PlayerStats 
+    private PlayerStats vidadoplayer;
+    private PlayerStats stats;
 
-   // Método para atualizar a vida
-    void Start()
+    private void Start() { 
+        playerStats = GetComponent<PlayerStats>(); 
+        stats =  GetComponent<PlayerStats>();
+    } 
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Health=10000;
-        armadura=200;
-    }
-    void armadura_inimigo(int damage)
-    {
-        damage -= armadura;
-        if(armadura>0)
+        if (hit.gameObject.CompareTag("Boss"))
         {
-        Debug.Log("A armadura do inimigo foi quebrada");
-        Health -= damage;
-        }
-
-    }
-
-    public void DarDamage(int damage)
-    {
-        Health -= damage;
-    }
-     //comparação de tag para dar dano.
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Projétil"))
-        {
-        DarDamage(20);
-        Destroy(other.gameObject);
-        if (Health <= 0){
-            level.AddExperience(5);
-            Destroy(this.gameObject);
-        }
+        stats.TakeDamage(10); 
+           if(stats.currentHealth<=0)
+           {
+           stats.currentHealth = 0;
+           stats.UpdateVidaPlayer();
+           }
+            
         }
     }
 }
