@@ -7,7 +7,7 @@ public class Level : MonoBehaviour
     public int xp_inicial = 0;
     public int xp_requerido=100;
     public int LeveldoPlayer=0;
-    public TMP_Text LevelText;
+    public PlayerStats PlayerStats;
 
     public void AddExperience(int experiencePoints)
     {
@@ -20,9 +20,12 @@ public class Level : MonoBehaviour
     void LevelUp()
     {
         LeveldoPlayer++;
+        PlayerStats.Armor++;
+        PlayerStats.maxHealth++;
         Debug.Log("Parabens Subiu de level"+LeveldoPlayer);
         xp_requerido = CalculateRequiredExperience();
         xp_inicial = 0;
+
     }
     int CalculateRequiredExperience()
     {
