@@ -1,35 +1,26 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Collections;
 
 public class Inimigo : MonoBehaviour
 {
-    public int Health; // Vida máxima
-    public GameObject player;
-    private Level level;
+    private PlayerStats playerStats; // Referência ao PlayerStats 
+    private PlayerStats stats;
 
-   // Método para atualizar a vida
-    void Start()
-    {
-        Health=100;
-    }
+    private void Start() { 
+        playerStats = GetComponent<PlayerStats>(); 
+        stats =  GetComponent<PlayerStats>();
+    } 
 
-    public void TakeDamage(int damage)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Health -= damage;
-    }
-     //comparação de tag para dar dano.
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Projétil"))
+        if (hit.gameObject.CompareTag("Inimigo"))
         {
-        TakeDamage(50);
-        Destroy(other.gameObject);
-        if (Health <= 0){
-            level.AddExperience(5);
-            Destroy(this.gameObject);
-        }
+        stats.TakeDamage(10); 
+           if(stats.currentHealth<=0)
+           {
+           stats.currentHealth = 0;
+           stats.UpdateVidaPlayer();
+           }
+            
         }
     }
 }
