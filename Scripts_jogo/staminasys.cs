@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class staminasys : MonoBehaviour
 {    
+    
     public double staminaMaxima = 100;  // Máximo de stamina
     public double staminaAtual;          // Stamina atual
     public double taxaConsumo = 10;    // Taxa de consumo de stamina por segundo
     public double taxaRecarga = 5;     // Taxa de recarga de stamina por segundo
-
     private bool estaCorrendo = false;  // Se o jogador está correndo
-    private PlayerStats stats;
+    public TMP_Text StaminaPlayer;
 
     // Evento chamado no Update para controlar o consumo e recarga de stamina
     void Update()
@@ -30,14 +31,19 @@ public class staminasys : MonoBehaviour
         }
 
         // Exibe a quantidade de stamina no console para depuração
-        Debug.Log("Stamina" + staminaAtual);
+        Debug.Log("Stamina:" + staminaAtual);
     }
-
+    public void UpdateStamina()
+    {
+      StaminaPlayer.text = "Stamina" + staminaAtual;
+    }
+         
     // Método para consumir stamina quando o jogador estiver correndo
     void ConsumirStamina()
     {
         // Consome stamina a uma taxa constante
         staminaAtual -= taxaConsumo * Time.deltaTime;
+        UpdateStamina();
 
         // Garante que a stamina não ultrapasse o valor mínimo
         if (staminaAtual < 0)
