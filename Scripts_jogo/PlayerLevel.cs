@@ -14,6 +14,11 @@ public class PlayerLevel : MonoBehaviour
     // UI para mostrar o nível e XP
     private Text nivelText;
     private Text experienciaText;
+    private PlayerStats stats;
+    public float aumentoDanoPorNivel = 5f;
+    private PlayerStatus playerStatus;
+    public TMP_Text VidaPlayer;
+    private PlayerStats playerStats;
     // Atualiza a UI e verifica se o jogador subiu de nível
     void Update()
     {
@@ -30,10 +35,15 @@ public class PlayerLevel : MonoBehaviour
             SubirDeNivel();
         }
         Updatenivel();
+        UpdatevidaNivel();
     }
     public void Updatenivel()
     {
-       Xpplayer.text = "Level" + nivel;
+        Xpplayer.text = "Level:" + nivel;
+    }
+    public void UpdatevidaNivel()
+    {
+      VidaPlayer.text = "Vida:" + playerStats.currentHealth;
     }
     // Método para adicionar XP ao jogador
     public void AdicionarExperiencia(int xp)
@@ -51,11 +61,10 @@ public class PlayerLevel : MonoBehaviour
     void SubirDeNivel()
     {
         nivel++;
-        experiencia -= experienciaParaProximoNivel; // O XP excedente é mantido para o próximo nível
-
-        // Aumenta a XP necessária para o próximo nível
+        experiencia -= experienciaParaProximoNivel; 
         experienciaParaProximoNivel = experienciaPorNivel + (nivel - 1) * 20;
-
         Debug.Log("Você subiu para o nível " + nivel + "!");
+        playerStatus.vidaMaxima += playerStatus.aumentoVidaPorNivel;
+        playerStatus.vidaAtual = playerStatus.vidaMaxima;
     }
 }
