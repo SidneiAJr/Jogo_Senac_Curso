@@ -7,13 +7,13 @@
 
 O portfólio inclui:
 
--Scripts para o Jogo: Códigos em C# implementando a lógica do jogo, como controle de personagem, interações, inteligência artificial, etc.
+1-Scripts para o Jogo: Códigos em C# implementando a lógica do jogo, como controle de personagem, interações, inteligência artificial, etc.
 
--Cenários 3D: Modelagem e criação de cenários 3D feitos no Blender, prontos para integração na Unity.
+2-Cenários 3D: Modelagem e criação de cenários 3D feitos no Blender, prontos para integração na Unity.
 
--Animações: Animações de personagens e objetos feitas no Maya e integradas ao jogo, proporcionando uma experiência visual mais imersiva.
+3-Animações: Animações de personagens e objetos feitas no Maya e integradas ao jogo, proporcionando uma experiência visual mais imersiva.
 
--Backup dos Scripts do Jogo: Cópias de segurança de todos os scripts do projeto para garantir a integridade e facilitar versões futuras.
+4-Backup dos Scripts do Jogo: Cópias de segurança de todos os scripts do projeto para garantir a integridade e facilitar versões futuras.
 
 Os projetos estão organizados em pastas específicas, cada uma contendo a descrição do projeto.
 
