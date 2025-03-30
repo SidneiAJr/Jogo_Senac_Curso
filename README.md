@@ -7,7 +7,7 @@
 
 🚀O portfólio inclui:
 
-1-Scripts para o Jogo: Códigos em C# implementando a lógica do jogo, como controle de personagem, interações, inteligência artificial, etc.
+1-Scripts para o Jogo: Códigos em C# implementando a lógica do jogo, como controle de personagem, interações.
 
 2-Cenários 3D: Modelagem e criação de cenários 3D feitos no Blender, prontos para integração na Unity.
 
