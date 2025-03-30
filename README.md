@@ -5,7 +5,7 @@
 
 ## Este repositório inclui scripts, animações e cenários 3D criados para o meu jogo na Unity. Aqui, você encontrará o processo completo, desde a implementação da lógica de jogo até a criação dos elementos visuais e animações.
 
-## 🚀O portfólio inclui:
+🚀O portfólio inclui:
 
 1-Scripts para o Jogo: Códigos em C# implementando a lógica do jogo, como controle de personagem, interações, inteligência artificial, etc.
 
@@ -17,4 +17,6 @@
 
 Os projetos estão organizados em pastas específicas, cada uma contendo a descrição do projeto.
 
-
+##Observação
+1- O jogo esta completo.
+2- Não foi postado.
